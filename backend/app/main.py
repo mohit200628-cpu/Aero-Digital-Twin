@@ -5,8 +5,10 @@ import asyncio
 import time
 import json
 from typing import Dict, Any, Optional
+import os
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 from app.physics.engine_model import AeroPistonEnginePhysics
@@ -247,3 +249,9 @@ async def telemetry_simulation_loop():
 @app.on_event("startup")
 async def startup_event():
     asyncio.create_task(telemetry_simulation_loop())
+
+# Serve production-built React frontend if present
+frontend_dist = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "..", "frontend", "dist"))
+if os.path.exists(frontend_dist):
+    app.mount("/", StaticFiles(directory=frontend_dist, html=True), name="frontend")
+

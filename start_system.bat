@@ -8,6 +8,7 @@ echo =========================================================================
 echo.
 
 cd /d "%~dp0"
+set "PATH=C:\Users\MOHIT\node;%PATH%"
 
 echo [1/2] Launching Python FastAPI Backend Server on port 8000...
 start "DRDO Digital Twin Backend (FastAPI)" cmd /k "cd /d "%~dp0backend" && python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload"

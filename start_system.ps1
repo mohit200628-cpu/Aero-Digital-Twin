@@ -6,6 +6,7 @@ Write-Host "           DRDO / Department of Defence Production (IDEX)" -Foregrou
 Write-Host "=========================================================================" -ForegroundColor Cyan
 
 $scriptDir = Split-Path -Parent $MyInvocation.MyCommand.Path
+$env:PATH = "C:\Users\MOHIT\node;" + $env:PATH
 
 Write-Host "`n[1/2] Starting Python FastAPI Backend on http://127.0.0.1:8000..." -ForegroundColor Green
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "Set-Location '$scriptDir\backend'; python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 --reload"
