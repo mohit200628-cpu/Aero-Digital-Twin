@@ -1,4 +1,4 @@
-# AI-Enabled Real-Time Digital Twin System for Aero Piston Engines in MALE UAVs
+# GARUDA-Twin (Ground-station Aerospace Real-time Diagnostic & Prognotic Digital Twin)
 
 **Smart India Hackathon (SIH) Prototype**  
 **Organization:** Defence Research and Development Organisation (DRDO)  
